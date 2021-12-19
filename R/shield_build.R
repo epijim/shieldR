@@ -28,7 +28,7 @@ shield_build <- function(
   # guess if base64 or png
   if (endsWith(x = logo,suffix = ".png")) {
     if (verbose) message("png filepath detected, doing base64 encoding")
-    stop("not done!")
+    encoded_logo <- shield_logo_encode(logo)
   } else {
     if (verbose) message("No .png detected, assumption pre-encoded")
     encoded_logo <- logo
@@ -37,7 +37,7 @@ shield_build <- function(
   # Generate URL
   if (method == "shields.io") {
     png_url <- glue::glue(
-      "https://raster.shields.io/badge/{stub}-{label}-{color}.svg?logo=data:image/png;base64,{logo}"
+      "https://raster.shields.io/badge/{stub}-{label}-{color}.svg?logo=data:image/png;base64,{encoded_logo}"
     )
     download.file(
       url = png_url,
