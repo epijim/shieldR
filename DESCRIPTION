@@ -11,3 +11,4 @@ LazyData: true
 Imports: 
     base64enc,
     glue
+RoxygenNote: 7.1.2

@@ -1,8 +1,8 @@
-# Convert a png into base64 string
-#
-# This function will create a local png shield
-#
-#' @param stub The left hand side of the shield
+#' Convert a png into base64 string
+#'
+#' This function will create a local png shield
+#'
+#' @param logo The left hand side of the shield
 
 shield_logo_encode <- function(
   logo

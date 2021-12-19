@@ -1,7 +1,7 @@
-# Build a png shield
-#
-# This function will create a local png shield
-#
+#' Build a png shield
+#'
+#' This function will create a local png shield
+#'
 #' @param stub The left hand side of the shield
 #' @param label The right hand side of the shield
 #' @param logo Either the path to a png logo (ideal is 14x14 pixels) or a
