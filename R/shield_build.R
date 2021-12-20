@@ -43,7 +43,7 @@ shield_build <- function(
     download.file(
       url = png_url,
       destfile = filename,
-      quiet = verbose
+      quiet = !verbose
     )
     if (verbose) message("File saved to ",filename)
 
