@@ -1,7 +1,7 @@
 Package: shieldR
 Type: Package
 Title: Create rendered badges and shields
-Version: 0.2.1
+Version: 0.3.0
 Author: James Black <james@epijim.uk>
 Maintainer: James Black <james@epijim.uk>
 Description: A package to generate local shields or badges.

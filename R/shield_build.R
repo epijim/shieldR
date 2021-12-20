@@ -1,6 +1,6 @@
 #' Build a png shield
 #'
-#' This function will create a local png shield
+#' This function will create a local svg and png shield
 #'
 #' @param stub The left hand side of the shield
 #' @param label The right hand side of the shield
@@ -19,12 +19,10 @@ shield_build <- function(
   label,
   logo,
   color = "blue",
-  filename = "generated_badge.png",
+  filename = "generated_badge",
   method = "shields.io",
   verbose = FALSE
 ) {
-  # check output is png
-  if (!endsWith(x = filename,suffix = ".png")) stop("filename must be a png file")
 
   # guess if base64 or png
   if (endsWith(x = logo,suffix = ".png")) {
@@ -37,18 +35,28 @@ shield_build <- function(
 
   # Generate URL
   if (method == "shields.io") {
+    # PNG
     png_url <- glue::glue(
       "https://raster.shields.io/badge/{stub}-{label}-{color}.svg?logo=data:image/png;base64,{encoded_logo}"
     )
     download.file(
       url = png_url,
-      destfile = filename,
+      destfile = glue::glue("{filename}.png"),
       quiet = !verbose
     )
-    if (verbose) message("File saved to ",filename)
-
+    if (verbose) message("File saved to ",glue::glue("{filename}.png"))
+    # SVG
+    svg_url <- glue::glue(
+      "https://img.shields.io/badge/{stub}-{label}-{color}.svg?logo=data:image/png;base64,{encoded_logo}"
+    )
+    download.file(
+      url = svg_url,
+      destfile = glue::glue("{filename}.svg"),
+      quiet = !verbose
+    )
+    if (verbose) message("File saved to ",glue::glue("{filename}.svg"))
   } else {
-    stop("Only shields.io set currently")
+    stop("Only shields.io available currently")
   }
 }
 
