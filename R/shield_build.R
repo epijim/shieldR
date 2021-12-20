@@ -12,6 +12,7 @@
 #' @param method Which service should be used for rendering. Right now it's
 #' just shields.io
 #' @param verbose Whether to print messages or not
+#' @export
 
 shield_build <- function(
   stub,
